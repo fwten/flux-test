@@ -3,11 +3,11 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
-  name: ckaipf
+  name: fwten
   namespace: flux-system
 spec:
   interval: 5m0s
-  url: https://github.com/ckaipf/flux-test
+  url: https://github.com/fwten/flux-test
   ref:
     branch: main
 
@@ -29,15 +29,15 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: ckaipf
-  namespace: ckaipf
+  name: fwten
+  namespace: fwten
 spec:
   interval: 1h
   retryInterval: 1m
   timeout: 5m
   sourceRef:
     kind: GitRepository
-    name: ckaipf
+    name: fwten
   path: ./test # Subpath in repo
   prune: false # Should resources be deleted
 
